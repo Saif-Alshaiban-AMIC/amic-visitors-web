@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import {
   Refresh, FileDownload, Delete, Add,
-  ArrowUpward, ArrowDownward, UnfoldMore, DeleteOutline,
+  ArrowUpward, ArrowDownward, UnfoldMore, DeleteOutline, Logout,
 } from '@mui/icons-material';
 import dayjs from 'dayjs';
 import { B } from '../theme';
@@ -44,7 +44,7 @@ function getPageNums(current, total) {
   return Array.from({ length: end - start + 1 }, (_, i) => start + i);
 }
 
-export default function VisitorsPage() {
+export default function VisitorsPage({ onLogout }) {
   const navigate = useNavigate();
 
   const [all,       setAll]       = useState([]);
@@ -263,6 +263,14 @@ export default function VisitorsPage() {
             sx={{ background: B.peach, '&:hover': { background: '#e09e85' } }}
           >
             Export CSV
+          </Button>
+          <Button
+            variant="outlined"
+            startIcon={<Logout />}
+            onClick={onLogout}
+            sx={{ color: '#fff', borderColor: 'rgba(255,255,255,0.4)', '&:hover': { borderColor: '#fff', background: 'rgba(255,255,255,0.08)' } }}
+          >
+            Sign Out
           </Button>
         </Box>
       </Box>

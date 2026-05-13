@@ -1,5 +1,8 @@
-const router = require('express').Router();
-const Visitor = require('../models/Visitor');
+const router      = require('express').Router();
+const Visitor     = require('../models/Visitor');
+const requireAuth = require('../middleware/requireAuth');
+
+router.use(requireAuth);
 
 router.get('/', async (req, res) => {
   try {

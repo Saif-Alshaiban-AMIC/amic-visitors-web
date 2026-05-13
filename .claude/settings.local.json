@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\salshaiban\\\\OneDrive - Alkhorayef Group Company Ltd\\\\Desktop\\\\AMIC-Visitors-Web\\\\client\\\\src\" -Recurse -Include \"*.jsx\",\"*.js\")",
-      "Bash(Select-Object -ExpandProperty FullName)"
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(git commit *)",
+      "Bash(git --version)",
+      "Bash(where git *)"
     ]
   }
 }
