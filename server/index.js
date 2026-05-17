@@ -3,7 +3,6 @@ const express      = require('express');
 const mongoose     = require('mongoose');
 const cors         = require('cors');
 const session      = require('express-session');
-const MongoStore   = require('connect-mongo');
 const path         = require('path');
 
 const app = express();
@@ -14,14 +13,15 @@ const PORT   = process.env.PORT   || 5000;
 const MONGO  = process.env.MONGODB_URI    || 'mongodb://localhost:27017/amic-visitors';
 const SECRET = process.env.SESSION_SECRET || 'change-this-secret';
 
+const { MongoStore } = require('connect-mongo');
+
 app.use(session({
   secret: SECRET,
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({ mongoUrl: MONGO }),
-  cookie: { httpOnly: true, maxAge: 8 * 60 * 60 * 1000 }, // 8 hours
+  cookie: { httpOnly: true, maxAge: 8 * 60 * 60 * 1000 },
 }));
-
 app.use('/api/auth',     require('./routes/auth'));
 app.use('/api/visitors', require('./routes/visitors'));
 

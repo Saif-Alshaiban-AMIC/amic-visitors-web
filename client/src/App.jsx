@@ -5,32 +5,39 @@ import AddVisitorPage from './pages/AddVisitorPage';
 import LoginPage      from './pages/LoginPage';
 import { getMe, logout } from './api/auth';
 
-export default function App() {
-  const [authed, setAuthed]   = useState(null); // null = loading
-  const [checking, setChecking] = useState(true);
+// Public guest form — no auth needed
+function GuestRoute() {
+  return <AddVisitorPage />;
+}
+
+// Protected admin dashboard — checks session on mount
+function AdminRoute() {
+  const [authed,   setAuthed]   = useState(null);
 
   useEffect(() => {
     getMe()
       .then(() => setAuthed(true))
-      .catch(() => setAuthed(false))
-      .finally(() => setChecking(false));
+      .catch(() => setAuthed(false));
   }, []);
 
-  const handleLogout = async () => {
-    await logout();
-    setAuthed(false);
-  };
-
-  if (checking) return null; // brief blank while checking session
+  if (authed === null) return null; // brief blank while checking
 
   if (!authed) return <LoginPage onLogin={() => setAuthed(true)} />;
 
   return (
+    <VisitorsPage
+      onLogout={async () => { await logout(); setAuthed(false); }}
+    />
+  );
+}
+
+export default function App() {
+  return (
     <BrowserRouter>
       <Routes>
-        <Route path="/"    element={<VisitorsPage onLogout={handleLogout} />} />
-        <Route path="/add" element={<AddVisitorPage />} />
-        <Route path="*"    element={<Navigate to="/" replace />} />
+        <Route path="/"      element={<GuestRoute />} />
+        <Route path="/admin" element={<AdminRoute />} />
+        <Route path="*"      element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );

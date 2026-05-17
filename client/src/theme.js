@@ -11,6 +11,7 @@ export const B = {
 };
 
 export const theme = createTheme({
+  shape: { borderRadius: 0 },
   palette: {
     primary:    { main: B.blue },
     secondary:  { main: B.peach },
@@ -23,18 +24,15 @@ export const theme = createTheme({
   components: {
     MuiButton: {
       styleOverrides: {
-        root: { borderRadius: 8, textTransform: 'none', fontWeight: 600, minHeight: 40 },
+        root: { textTransform: 'none', fontWeight: 600, minHeight: 40 },
       },
-    },
-    MuiOutlinedInput: {
-      styleOverrides: { root: { borderRadius: 8 } },
     },
   },
 });
 
 export const fieldSx = {
   '& .MuiOutlinedInput-root': {
-    borderRadius: 2,
+    borderRadius: 0,
     '& fieldset':              { borderColor: B.brown },
     '&:hover fieldset':        { borderColor: B.lightBlue },
     '&.Mui-focused fieldset':  { borderColor: B.peach },

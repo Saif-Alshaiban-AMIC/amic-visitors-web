@@ -5,7 +5,9 @@
       "Bash(Select-Object -ExpandProperty FullName)",
       "Bash(git commit *)",
       "Bash(git --version)",
-      "Bash(where git *)"
+      "Bash(where git *)",
+      "Bash(git add *)",
+      "Bash(git push *)"
     ]
   }
 }

@@ -214,7 +214,7 @@ export default function VisitorsPage({ onLogout }) {
       {/* ── Header ── */}
       <Box sx={{
         background: `linear-gradient(135deg, ${B.blue} 0%, ${B.lightBlue} 100%)`,
-        p: '20px 24px', borderRadius: '12px 12px 0 0',
+        p: '20px 24px', borderRadius: 0,
         display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap',
       }}>
         <Box sx={{ flex: 1, minWidth: 0 }}>
@@ -313,7 +313,7 @@ export default function VisitorsPage({ onLogout }) {
           sx={{
             flex: 1, minWidth: 200,
             '& .MuiOutlinedInput-root': {
-              borderRadius: 2,
+              borderRadius: 0,
               '& fieldset':             { borderColor: B.brown },
               '&:focus-within fieldset':{ borderColor: B.peach },
             },
@@ -323,13 +323,13 @@ export default function VisitorsPage({ onLogout }) {
           type="date" size="small" value={dateFrom}
           onChange={e => { setDateFrom(e.target.value); setPage(1); }}
           title="From date"
-          sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2, '& fieldset': { borderColor: B.brown }, '&:focus-within fieldset': { borderColor: B.peach } } }}
+          sx={{ '& .MuiOutlinedInput-root': { borderRadius: 0, '& fieldset': { borderColor: B.brown }, '&:focus-within fieldset': { borderColor: B.peach } } }}
         />
         <TextField
           type="date" size="small" value={dateTo}
           onChange={e => { setDateTo(e.target.value); setPage(1); }}
           title="To date"
-          sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2, '& fieldset': { borderColor: B.brown }, '&:focus-within fieldset': { borderColor: B.peach } } }}
+          sx={{ '& .MuiOutlinedInput-root': { borderRadius: 0, '& fieldset': { borderColor: B.brown }, '&:focus-within fieldset': { borderColor: B.peach } } }}
         />
         <Button
           variant="outlined"
@@ -341,7 +341,7 @@ export default function VisitorsPage({ onLogout }) {
       </Box>
 
       {/* ── Table ── */}
-      <Box sx={{ background: '#fff', borderRadius: '0 0 12px 12px', overflow: 'hidden' }}>
+      <Box sx={{ background: '#fff', overflow: 'hidden' }}>
         <TableContainer>
           <Table sx={{ minWidth: 920, fontSize: 13 }}>
 
@@ -459,7 +459,7 @@ export default function VisitorsPage({ onLogout }) {
                           alt="sig"
                           onClick={() => setSigSrc(v.visitorSignature)}
                           sx={{
-                            height: 32, border: '1px solid #e5e5e5', borderRadius: 1,
+                            height: 32, border: '1px solid #e5e5e5', borderRadius: 0,
                             background: '#fafafa', cursor: 'pointer', display: 'block',
                             '&:hover': { borderColor: B.peach },
                           }}
@@ -479,7 +479,7 @@ export default function VisitorsPage({ onLogout }) {
                             `Are you sure you want to delete the record for "${v.title}"?`
                           )}
                           sx={{
-                            color: B.danger, border: '1px solid #ffcdd2', borderRadius: 1.5,
+                            color: B.danger, border: '1px solid #ffcdd2', borderRadius: 0,
                             width: 30, height: 30, fontSize: 15,
                             '&:hover': { background: B.danger, color: '#fff', borderColor: B.danger },
                           }}
@@ -519,7 +519,7 @@ export default function VisitorsPage({ onLogout }) {
       <Modal open={!!sigSrc} onClose={() => setSigSrc('')}>
         <Box sx={{
           position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
-          background: '#fff', borderRadius: 3, p: 2.5, maxWidth: 420, width: '90%',
+          background: '#fff', borderRadius: 0, p: 2.5, maxWidth: 420, width: '90%',
           boxShadow: '0 16px 48px rgba(0,0,0,.25)', outline: 'none',
         }}>
           <Typography sx={{ fontWeight: 700, color: B.blue, mb: 1.5 }}>Visitor Signature</Typography>
@@ -563,7 +563,7 @@ function PgBtn({ children, active, disabled, onClick }) {
       disabled={disabled}
       onClick={onClick}
       sx={{
-        minWidth: 36, px: 1, borderRadius: 1.5,
+        minWidth: 36, px: 1, borderRadius: 0,
         borderColor: '#ddd',
         color:      active ? '#fff' : B.blue,
         background: active ? B.blue  : '#fff',
