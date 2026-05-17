@@ -2,6 +2,17 @@ const router      = require('express').Router();
 const Visitor     = require('../models/Visitor');
 const requireAuth = require('../middleware/requireAuth');
 
+// Public — guests submit their own visit
+router.post('/', async (req, res) => {
+  try {
+    const visitor = await Visitor.create(req.body);
+    res.status(201).json(visitor);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// Everything below requires admin login
 router.use(requireAuth);
 
 router.get('/', async (req, res) => {
@@ -10,15 +21,6 @@ router.get('/', async (req, res) => {
     res.json(visitors);
   } catch (err) {
     res.status(500).json({ error: err.message });
-  }
-});
-
-router.post('/', async (req, res) => {
-  try {
-    const visitor = await Visitor.create(req.body);
-    res.status(201).json(visitor);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
   }
 });
 
