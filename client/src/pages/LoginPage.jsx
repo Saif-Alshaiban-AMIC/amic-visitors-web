@@ -36,11 +36,14 @@ export default function LoginPage({ onLogin }) {
         <Box sx={{
           background: `linear-gradient(135deg, ${B.blue} 0%, ${B.lightBlue} 100%)`,
           p: '28px 32px', textAlign: 'center',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1.5,
         }}>
-          <Typography sx={{ color: '#fff', fontSize: 22, fontWeight: 700, letterSpacing: 0.5 }}>
+          <Box component="img" src="/logo.svg" alt="Alkhorayef Logo"
+            sx={{ height: 52, filter: 'brightness(0) invert(1)', opacity: 0.95 }} />
+          <Typography sx={{ color: '#fff', fontSize: 20, fontWeight: 700, letterSpacing: 0.5 }}>
             AMIC Visitors
           </Typography>
-          <Typography sx={{ color: 'rgba(255,255,255,0.7)', fontSize: 13, mt: 0.5 }}>
+          <Typography sx={{ color: 'rgba(255,255,255,0.7)', fontSize: 13 }}>
             Admin — Sign in to continue
           </Typography>
         </Box>

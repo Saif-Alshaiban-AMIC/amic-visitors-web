@@ -92,12 +92,14 @@ export default function AddVisitorPage() {
       <Box sx={{
         background: `linear-gradient(135deg, ${B.blue} 0%, ${B.lightBlue} 100%)`,
         p: { xs: '16px', md: '20px 24px' },
-        textAlign: 'center',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1,
       }}>
-        <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: { xs: 18, md: 20 }, mb: '2px' }}>
+        <Box component="img" src="/logo.svg" alt="Alkhorayef Logo"
+          sx={{ height: { xs: 48, md: 56 }, filter: 'brightness(0) invert(1)', opacity: 0.95 }} />
+        <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: { xs: 16, md: 18 }, mt: 0.5 }}>
           Visitor Registration
         </Typography>
-        <Typography sx={{ color: 'rgba(255,255,255,0.7)', fontSize: 12 }}>
+        <Typography sx={{ color: 'rgba(255,255,255,0.7)', fontSize: 11 }}>
           Alkhorayef Industries – Military Sector
         </Typography>
       </Box>

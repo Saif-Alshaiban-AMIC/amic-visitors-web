@@ -217,13 +217,17 @@ export default function VisitorsPage({ onLogout }) {
         p: '20px 24px', borderRadius: 0,
         display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap',
       }}>
-        <Box sx={{ flex: 1, minWidth: 0 }}>
-          <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: 18, mb: '2px' }}>
-            📋 Visitor Records
-          </Typography>
-          <Typography sx={{ color: 'rgba(255,255,255,0.7)', fontSize: 12 }}>
-            Alkhorayef Industries – Military Sector &nbsp;|&nbsp; HR View
-          </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flex: 1, minWidth: 0 }}>
+          <Box component="img" src="/logo.svg" alt="Alkhorayef Logo"
+            sx={{ height: 40, filter: 'brightness(0) invert(1)', opacity: 0.95, flexShrink: 0 }} />
+          <Box>
+            <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: 18, mb: '2px' }}>
+              Visitor Records
+            </Typography>
+            <Typography sx={{ color: 'rgba(255,255,255,0.7)', fontSize: 12 }}>
+              Alkhorayef Industries – Military Sector &nbsp;|&nbsp; Admin
+            </Typography>
+          </Box>
         </Box>
         <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
           {selected.size > 0 && (
